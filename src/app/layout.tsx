@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import "./globals.css";
-import Nav from "@/components/Nav";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 type LayoutProps = {
   children: ReactNode;
@@ -10,15 +11,11 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body>
-        <header>
-          <Nav />
-        </header>
+        <Header />
 
         <main>{children}</main>
 
-        <footer>
-          <p>Movie data from TMDB. Made by Alex Harsvik.</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
