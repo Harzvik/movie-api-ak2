@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import "./globals.css";
+import Nav from "@/components/Nav";
 
 type LayoutProps = {
   children: ReactNode;
@@ -11,15 +11,13 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en">
       <body>
         <header>
-          <nav>
-            <Link href="/">Home</Link>
-          </nav>
+          <Nav />
         </header>
 
         <main>{children}</main>
 
         <footer>
-          <p>Movie data from TMDB. Built by Alex Harsvik.</p>
+          <p>Movie data from TMDB. Made by Alex Harsvik.</p>
         </footer>
       </body>
     </html>
