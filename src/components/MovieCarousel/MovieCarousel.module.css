@@ -1,0 +1,129 @@
+/*based on teh movie carousel i made in the first school project :))) */
+
+.section {
+  min-width: 0;
+  margin-block: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+
+.heading {
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.controls button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1rem 1.5rem;
+
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 1rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
+}
+
+.card {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto 12rem;
+  align-items: start;
+  gap: 0.25rem;
+  scroll-snap-align: start;
+}
+
+.rank {
+  min-width: 2ch;
+  padding-top: 1rem;
+  color: var(--accent);
+  font-size: 5rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: right;
+}
+
+.card:nth-child(even) .rank {
+  color: var(--error);
+}
+
+.link {
+  display: block;
+  min-width: 0;
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.poster,
+.placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 0.5rem;
+}
+
+.poster {
+  height: auto;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+}
+
+.title {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.link:hover .title {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: auto 8rem;
+  }
+
+  .rank {
+    font-size: 3rem;
+  }
+}
