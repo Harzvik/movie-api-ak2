@@ -5,6 +5,7 @@ import type {
 } from "../types/movie.type";
 
 //unified logic to catch errors, responses and variables
+//trying smth new here, LET ME COOK
 const API_URL = "https://api.themoviedb.org/3";
 
 async function fetchFromTMDB<T>(path: string): Promise<T> {
@@ -41,6 +42,24 @@ export async function getTrendingMovies(
 ): Promise<Movie[]> {
   const data = await fetchFromTMDB<MovieListResponse>(
     `/trending/movie/${timeWindow}`,
+  );
+
+  return data.results;
+}
+
+export async function searchMovies(query: string): Promise<Movie[]> {
+  const trimmedQuery = query.trim();
+
+  if (!trimmedQuery) {
+    return [];
+  }
+
+  const params = new URLSearchParams({
+    query: trimmedQuery,
+  });
+
+  const data = await fetchFromTMDB<MovieListResponse>(
+    `/search/movie?${params.toString()}`,
   );
 
   return data.results;
