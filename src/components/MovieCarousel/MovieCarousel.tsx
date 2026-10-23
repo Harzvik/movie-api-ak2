@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Movie } from "../../types/movie.type";
 import styles from "./MovieCarousel.module.css";
 import { useRef } from "react";
+import Image from "next/image";
 
 type MovieCarouselProps = {
   title: string;
@@ -77,8 +78,7 @@ export default function MovieCarousel({
                 className={styles.link}
               >
                 {movie.poster_path ? (
-                  //do i really have to use the next Image component? JUST LET ME USE STANDARD IMG TAG
-                  <img
+                  <Image
                     src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                     alt=""
                     width={342}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Movie } from "@/types/movie.type";
 import styles from "./MovieGrid.module.css";
+import Image from "next/image";
 
 type MovieGridProps = {
   movies: Movie[];
@@ -20,8 +21,7 @@ export default function MovieGrid({ movies }: MovieGridProps) {
             className={styles.link}
           >
             {movie.poster_path ? (
-              //gad this annoys me...
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                 alt=""
                 width={342}

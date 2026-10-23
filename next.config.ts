@@ -5,6 +5,18 @@ const nextConfig: NextConfig = {
   cacheComponents: false,
   partialPrefetching: false,
   reactCompiler: true,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+        pathname: "/t/p/**",
+        search: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
