@@ -35,3 +35,21 @@
     gap: 0.25rem;
   }
 }
+
+.container {
+  flex-wrap: wrap;
+}
+
+.search {
+  flex: 0 1 22rem;
+  min-width: 0;
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .search {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-left: 0;
+  }
+}
