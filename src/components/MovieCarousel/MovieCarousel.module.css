@@ -75,7 +75,7 @@
 }
 
 .card:nth-child(even) .rank {
-  color: var(--link);
+  color: var(--error);
 }
 
 .link {
