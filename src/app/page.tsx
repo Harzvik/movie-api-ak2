@@ -1,28 +1,60 @@
-import SearchBar from "@/components/SearchBar/SearchBar";
-import { getTrendingMovies } from "@/api/tmdb";
-import MovieCarousel from "@/components/MovieCarousel/MovieCarousel";
 import Link from "next/link";
-
+import SearchBar from "@/components/SearchBar/SearchBar";
+import MovieCarousel from "@/components/MovieCarousel/MovieCarousel";
+import { getTrendingMovies } from "@/api/tmdb";
+import styles from "./page.module.css";
+import Image from "next/image";
 
 export default async function Home() {
   const movies = await getTrendingMovies();
 
+  const featuredMovies = movies
+    .filter((movie) => movie.poster_path)
+    .slice(0, 3);
+
   return (
-    <>
-      <section>
-        <h1>Find your next favourite movie</h1>
+    <div className={styles.home}>
+      <section className={styles.hero}>
+        <div className={styles.content}>
+          <p className={styles.eyebrow}>Welcome to Gokflix</p>
 
-        <p>
-          Search for movies, explore different genres, and discover
-          what’s trending.
-        </p>
+          <h1 className={styles.heading}>
+            What are you
+            <br />
+            watching tonight?
+          </h1>
 
-        <SearchBar label="Find a movie from the homepage" />
+          <p className={styles.description}>
+            Find a movie you’ve been meaning to watch, or see what’s
+            trending this week.
+          </p>
 
-        <Link href="/browse">Browse movies →</Link>
+          <div className={styles.search}>
+            <SearchBar label="Find a movie from the homepage" />
+          </div>
+
+          <Link href="/browse" className={styles.browseLink}>
+            Browse movies <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className={styles.posters} aria-hidden="true">
+          {featuredMovies.map((movie) => (
+            <Image
+              key={movie.id}
+              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+              alt=""
+              width={342}
+              height={513}
+              className={styles.poster}
+            />
+          ))}
+        </div>
       </section>
 
-      <MovieCarousel title="Trending this week" movies={movies} />
-    </>
+      <div className={styles.trending}>
+        <MovieCarousel title="Trending this week" movies={movies} />
+      </div>
+    </div>
   );
 }
