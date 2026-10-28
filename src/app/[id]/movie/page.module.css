@@ -1,0 +1,110 @@
+.page {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 2rem 4% 4rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 2rem;
+  color: var(--muted);
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.poster,
+.placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 0.5rem;
+}
+
+.poster {
+  height: auto;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.content {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 0 0 1.5rem;
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.facts dd {
+  margin: 0.25rem 0 0;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.genres li {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  background: var(--surface);
+  font-size: 0.875rem;
+}
+
+.subheading {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.overview {
+  max-width: 65ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .poster,
+  .placeholder {
+    max-width: 240px;
+  }
+}
