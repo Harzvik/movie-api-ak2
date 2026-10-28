@@ -74,7 +74,7 @@ export default function MovieCarousel({
               </span>
 
               <Link
-                href={`/movies/${movie.id}`}
+                href={`/${movie.id}/movie`}
                 className={styles.link}
               >
                 {movie.poster_path ? (
