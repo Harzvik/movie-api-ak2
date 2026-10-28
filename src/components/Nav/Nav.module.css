@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--foreground);
+}
+
+.link[aria-current="page"] {
+  color: var(--foreground);
+  border-bottom-color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    gap: 0.25rem 1rem;
+  }
+}
