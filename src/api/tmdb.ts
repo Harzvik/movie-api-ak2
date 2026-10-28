@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type {
   Movie,
   MovieDetails,
@@ -19,6 +20,10 @@ async function fetchFromTMDB<T>(path: string): Promise<T> {
   url.searchParams.set("api_key", apiKey);
 
   const response = await fetch(url);
+
+  if (response.status === 404) {
+    notFound();
+  }
 
   if (!response.ok) {
     throw new Error(`TMDB request failed (${response.status}).`);
