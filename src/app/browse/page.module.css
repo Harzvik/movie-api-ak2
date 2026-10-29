@@ -32,3 +32,54 @@
     margin-bottom: 1.5rem;
   }
 }
+
+.filters {
+  margin-bottom: 1.5rem;
+}
+
+.filterButton {
+  width: fit-content;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.filterButton:hover {
+  color: var(--accent);
+}
+
+.filterForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.filterForm select,
+.filterForm button {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.filterForm select {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.filterForm button {
+  border: 0;
+  background: var(--accent);
+  color: var(--background);
+  cursor: pointer;
+}
+
+.filterForm button:hover {
+  background: var(--foreground);
+}

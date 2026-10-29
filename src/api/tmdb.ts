@@ -69,3 +69,23 @@ export async function searchMovies(query: string): Promise<Movie[]> {
 
   return data.results;
 }
+
+export async function getGenres() {
+  const data = await fetchFromTMDB<{
+    genres: { id: number; name: string }[];
+  }>("/genre/movie/list");
+
+  return data.genres;
+}
+
+export async function getMoviesByGenre(genreId: number): Promise<Movie[]> {
+  const params = new URLSearchParams({
+    with_genres: String(genreId),
+  });
+
+  const data = await fetchFromTMDB<MovieListResponse>(
+    `/discover/movie?${params.toString()}`,
+  );
+
+  return data.results;
+}
