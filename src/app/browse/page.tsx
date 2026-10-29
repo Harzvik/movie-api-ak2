@@ -1,5 +1,6 @@
 import { getTrendingMovies, searchMovies } from "@/api/tmdb";
 import MovieGrid from "@/components/MovieGrid/MovieGrid";
+import styles from "./page.module.css";
 
 type BrowseProps = {
   searchParams: Promise<{
@@ -18,14 +19,20 @@ export default async function Browse({ searchParams }: BrowseProps) {
     : await getTrendingMovies();
 
   return (
-    <>
-      <h1>
-        {query ? `Search results for “${query}”` : "Browse movies"}
-      </h1>
+    <div className={styles.page}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>
+          {query ? `Search results for “${query}”` : "Browse movies"}
+        </h1>
 
-      {!query && <p>Explore this week’s trending movies.</p>}
+        <p className={styles.description}>
+          {query
+            ? ""
+            : "Explore this week’s trending movies."}
+        </p>
+      </div>
 
       <MovieGrid movies={movies} />
-    </>
+    </div>
   );
 }
