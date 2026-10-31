@@ -123,3 +123,19 @@
 .retry:hover {
   background: var(--foreground);
 }
+
+.skeleton {
+  background: var(--surface);
+}
+
+.skeletonTitle {
+  width: 75%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 0.25rem;
+}
+
+.skeletonText {
+  height: 10rem;
+  border-radius: 0.25rem;
+}
